@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int helper(vector<int> &a, int n) {
+    if (n == 1 || n == 2) return 1;
+    if (a[n] != 0) return a[n];
+    a[n] = helper(a, n - 1) + helper(a, n - 2);
+    return a[n];
+}
+
+int fib(int n) {
+    if (n < 1) return 0;
+    vector<int> a(n + 1, 0);
+    return helper(a, n);
+}
+
+int main() {
+    int n;
+    scanf ("%d", &n);
+    printf ("%d\n", fib(n));
+    return 0;
+}
