@@ -31,13 +31,13 @@ Singleton *Singleton::GetInstance(const string& value) {
 }
 
 void ThreadFoo() {
-    this_thread::sleep_for(std::chrono::milliseconds(1000));
+    this_thread::sleep_for(chrono::milliseconds(1000));
     Singleton* singleton = Singleton::GetInstance("FOO");
     cout << singleton->value() << "\n";
 }
 
 void ThreadBar() {
-    this_thread::sleep_for(std::chrono::milliseconds(1000));
+    this_thread::sleep_for(chrono::milliseconds(1000));
     Singleton* singleton = Singleton::GetInstance("BAR");
     cout << singleton->value() << "\n";
 }
