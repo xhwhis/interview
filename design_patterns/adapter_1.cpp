@@ -17,7 +17,7 @@ public:
     }
 };
 
-class Adapter : public Target, public Adaptee {
+class Adapter : public Target, private Adaptee {
 public:
     Adapter() {}
     string Request() const override {
