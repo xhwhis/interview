@@ -42,7 +42,6 @@ public:
     void VisitConcreteComponentA(const ConcreteComponentA *element) const override {
         cout << element->ExclusiveMethodOfConcreteComponentA() << " + ConcreteVisitor1\n";
     }
-
     void VisitConcreteComponentB(const ConcreteComponentB *element) const override {
         cout << element->SpecialMethodOfConcreteComponentB() << " + ConcreteVisitor1\n";
     }
