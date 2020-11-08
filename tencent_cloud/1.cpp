@@ -14,7 +14,7 @@ string to_han(string num) {
             else ans = han[0] + ans;
             while (i > 1 && num[i] == '0') i--, j++;
         } else {
-            if (num[i] == '1' && flags[j] == "十") ans = "十" + ans;
+            if (i == 0 && num[0] == '1' && flags[j] == "十") ans = "十" + ans;
             else ans = han[num[i] - '0'] + flags[j] + ans;
         }
     }
