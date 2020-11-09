@@ -10,12 +10,30 @@ string to_han(string num) {
     string ans;
     for (int i = num.size() - 1, j = 0; i >= 0; i--, j++) {
         if (num[i] == '0') {
-            if (j == 4 || j == 8 || j == 12) ans = flags[j] + ans;
-            else ans = han[0] + ans;
-            while (i > 1 && num[i] == '0') i--, j++;
+            if (i != num.size() - 1) {
+                if (j == 4 || j == 8 || j == 12) {
+                    ans = flags[j] + ans;
+                } else {
+                    ans = han[0] + ans;
+                }
+            }
+            int tmp, _i = i;
+            while (i > 1 && num[i] == '0') {
+                i--, j++;
+                if (j == 4) tmp = j;
+                if (j == 8) tmp = j;
+                if (j == 12) tmp = j;
+            }
+            ans = flags[tmp] + ans;
+            if ((_i == num.size() - 1) && (j == 4 || j == 8 || j == 12)) {
+                ans = han[num[i] - '0'] + flags[j] + ans;
+            }
         } else {
-            if (i == 0 && num[0] == '1' && flags[j] == "十") ans = "十" + ans;
-            else ans = han[num[i] - '0'] + flags[j] + ans;
+            if (i == 0 && num[0] == '1' && flags[j] == "十") {
+                ans = "十" + ans;
+            } else {
+                ans = han[num[i] - '0'] + flags[j] + ans;
+            }
         }
     }
     return ans;
